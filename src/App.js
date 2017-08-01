@@ -48,7 +48,7 @@ class BooksApp extends React.Component {
     BooksAPI.update(book, shelf).then(mainBook => {
       let stateCheck = 0;
       let searchedBooks = []
-      const updatedMainBooks = this.state.mainBooks.map(b => {
+      let updatedMainBooks = this.state.mainBooks.map(b => {
         if (b.id === mainBook.id) {
           b.shelf = shelf;
           stateCheck = 1;
