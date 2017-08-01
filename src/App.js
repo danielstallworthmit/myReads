@@ -1,4 +1,9 @@
 import React from 'react'
+import {Route} from 'react-router-dom'
+import SearchBooks from './SearchBooks'
+import MainPage from './MainPage'
+import PageTitle from './PageTitle'
+import OpenSearch from './OpenSearch'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 
@@ -70,9 +75,31 @@ class BooksApp extends React.Component {
   }
 
   render() {
+    const {books, mainBooks} = this.state
     return (
       <div className="app">
-
+        <Route path='/search' render={() => (
+          <searchBooks
+            books={books}
+            searchBooks={this.searchBooks}
+            removeBooks={this.removeSearchedBooks}
+            updateBooks={this.updateBooks} 
+          />
+        )} />
+        <Route exact path='/' render={() => (
+          <div className="list-books">
+            <div className="list-books-content">
+              <div>
+                <PageTitle heading="MyReads" />
+                <MainPage
+                  updateBooks={this.updateBooks}
+                  mainBooks={mainBooks}
+                />
+              </div>
+            </div>
+            <OpenSearch />
+          </div>
+        )} />
       </div>
     )
   }
