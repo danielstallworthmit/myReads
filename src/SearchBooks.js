@@ -25,7 +25,7 @@ export default class SearchBooks extends React.Component {
         return (
             <div className="search-books">
                 <div className="search-books-bar">
-                    <Link to='/' onClick={() => removeBooks()} className= 'close-search'>Close</Link>
+                    <Link to='/' onClick={() => removeBooks()} className='close-search'>Close</Link>
                     <div className="search-books-input-wrapper">
                         <input type="text"
                             onChange={(event) => this.updateQuery(event.target.value)}

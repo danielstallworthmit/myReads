@@ -20,7 +20,7 @@ export default class Book extends React.Component {
                     <div className="book-top">
                         <div className="book-cover"
                             style={{width: 128, height: 193, backgroundImage: image}}></div>
-                        <BookShelfChanger 
+                        <BookShelfChanger
                             book={book}
                             selectVal={bookShelf}
                             selectUpdate={bookUpdate}

@@ -1,5 +1,5 @@
 import React from 'react'
-import PropTypes from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 export default class BookShelfChanger extends React.Component {
     static PropTypes = {
