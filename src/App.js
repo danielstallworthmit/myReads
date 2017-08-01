@@ -83,7 +83,7 @@ class BooksApp extends React.Component {
             books={books}
             searchBooks={this.searchBooks}
             removeBooks={this.removeSearchedBooks}
-            updateBooks={this.updateBooks} 
+            updateBooks={this.updateBooks}
           />
         )} />
         <Route exact path='/' render={() => (
