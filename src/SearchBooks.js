@@ -18,7 +18,7 @@ export default class SearchBooks extends React.Component {
 
     updateQuery = (query) => {
         this.props.searchBooks(query.trim(), this.state.maxResults);
-    }
+    }  // Trim search results and send them to API search function
 
     render() {
         const {books, removeBooks, updateBooks} = this.props;
@@ -55,5 +55,7 @@ export default class SearchBooks extends React.Component {
                 </div>
             </div>
         )
-    }
+    }  // Call removeBooks when go back to main page, call updateQuery when searching,
+        // Render list of matching books when the search returns an array of books
+        // Search returns some duplicates, so added the index to make unique keys
 }

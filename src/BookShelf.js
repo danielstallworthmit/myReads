@@ -41,5 +41,5 @@ export default class BookShelf extends React.Component {
                 </div>
             </div>
         )
-    }
-} 
+    }  // Each BookShelf contains Books that have a shelf property which match that bookshelf
+}

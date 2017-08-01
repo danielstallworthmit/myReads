@@ -11,5 +11,5 @@ export default class PageTitle extends React.Component {
                 <h1>{this.props.heading}</h1>
             </div>
         )
-    }
-} 
+    }  // Header for the main page or other similar pages if app extended
+}

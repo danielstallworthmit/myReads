@@ -8,5 +8,5 @@ export default class OpenSearch extends React.Component {
                 <Link to='/search'>Add a Book</Link>
             </div>
         )
-    }
-} 
+    }  // Handles the link to the search page
+}

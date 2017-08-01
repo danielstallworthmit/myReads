@@ -31,5 +31,5 @@ export default class Book extends React.Component {
                 </div>
             </li>
         )
-    }
+    }  // Each book has a BookShelfChanger to switch book shelves
 } 

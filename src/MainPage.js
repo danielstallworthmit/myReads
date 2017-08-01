@@ -16,5 +16,5 @@ export default class MainPage extends React.Component {
                 <BookShelf mainBooks={mainBooks} updateBooks={updateBooks} title="Read" bookShelf="read" />
             </div>
         )
-    }
-} 
+    }  // MainPage creates 3 BookShelves with corresponding titles and maps to value on BookShelfChanger
+}

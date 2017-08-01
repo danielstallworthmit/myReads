@@ -7,17 +7,20 @@ import OpenSearch from './OpenSearch'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
 
+// State and API Logic for the MyReads app
+
 class BooksApp extends React.Component {
   state = {
     books: [],
     mainBooks: []
-  }
+  } // Set state for books on main page and search page as 
+    // search page books change frequently and main page books do not
 
   componentDidMount() {
     BooksAPI.getAll().then(mainBooks => {
       this.setState({mainBooks});
     })
-  }
+  }  // Get books from API when page is refreshed and accessed
 
   bookSync = (searchBooks, mainBooks) => {
     return searchBooks.map(sb => {
@@ -30,7 +33,9 @@ class BooksApp extends React.Component {
       })
       return sb;
     })
-  }
+  }  // Searched books have wrong shelves when pulled from API, 
+      // so have to make sure to sync shelf with main page book shelf
+      // Used in searchBooks function below
 
   searchBooks = (query, maxResults) => {
     BooksAPI.search(query, maxResults).then((searchedBooks) => {
@@ -41,12 +46,11 @@ class BooksApp extends React.Component {
         this.setState({books: []});
       }
     })
-  }
-
-  // mapShelfFunc = (books, book, shelf)
+  }  // Get the books that match the query from the API and sync them with main page books 
+      // to get the correct shelf
+      // Only want to do sync if query actually returns something
 
   updateBooks = (book, shelf) => {
-    // console.log(shelf)
     BooksAPI.update(book, shelf).then(() => {
       let stateCheck = 0;
       let searchedBooks = []
@@ -68,14 +72,17 @@ class BooksApp extends React.Component {
           return b;
         })
       }
-      // console.log(updatedMainBooks)
       this.setState({mainBooks: updatedMainBooks, books: searchedBooks});
     })
-  }
+  }  // Update the API for a specific book when its shelf is changed, 
+      // then update the state for main page books 
+      // If the book is already in state, change that book's shelf
+        // otherwise add the book to the main page books state
+      // If searched books are returned change the shelf for the state accordingly
 
   removeSearchedBooks = () => {
     this.setState({books: []})
-  }
+  }  // Remove searched books when go back to the main page
 
   render() {
     const {books, mainBooks} = this.state
@@ -106,6 +113,7 @@ class BooksApp extends React.Component {
       </div>
     )
   }
-}
+}  // Route to either main page or search page based on url
+    // search renders SearchBooks component and / renders MainPage component
 
 export default BooksApp

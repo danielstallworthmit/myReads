@@ -25,5 +25,7 @@ export default class BookShelfChanger extends React.Component {
                 </select>
             </div>
         )
-    }
+    }  // onChange sends the target value to App.js to call the update function 
+        // and change the book shelf to the correct value
+        // selectVal prop comes from the shelf property of the book
 } 
